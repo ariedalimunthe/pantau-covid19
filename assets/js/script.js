@@ -2,10 +2,11 @@ $(document).ready(function () {
   getKasus();
   getProvinsi();
   getProvinsi2();
+
   getSembuh();
   getMeninggal();
   getIndonesia();
-  
+
 });
 
 
@@ -265,5 +266,3 @@ function getProvinsi2() {
     }
   })
 }
-
-
