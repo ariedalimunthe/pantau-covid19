@@ -23,6 +23,8 @@
   <link rel="shortcut icon" href="assets/images/ariedalimunthe.ico" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
 </head>
 
 <body>
@@ -188,62 +190,34 @@
           <h4 class="text-info text-center rotate">#DIRUMAH AJA, #STAY SAFETY</h4>
           <p id="datetime"></p>
 
-          <div class="mdc-layout-grid__inner">
-
-            <div
-              class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-4-tablet">
-              <div class="mdc-card info-card info-card--success">
-                <div class="card-inner">
-                  <h5 class="card-title">Kasus Di Seluruh Dunia</h5>
-                  <h5 class="font-weight-light pb-2 mb-1 border-bottom text-white" id="jumlah"></h5>
-                  <p class="tx-12 text-muted" id="nama"></p>
-                  <div class="card-icon-wrapper">
-                    <i class="material-icons">accessibility</i>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-4-tablet">
-              <div class="mdc-card info-card info-card--danger">
-                <div class="card-inner">
-                  <h5 class="card-title">Pasien Sembuh</h5>
-                  <h5 class="font-weight-light pb-2 mb-1 border-bottom text-white" id="totalsembuh"></h5>
-                  <p class="tx-12 text-muted" id="sembuh"></p>
-                  <div class="card-icon-wrapper">
-                    <img width="30" src="assets/images/happy-ipM.png">
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div
-              class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-4-tablet">
-              <div class="mdc-card info-card info-card--info">
-                <div class="card-inner">
-                  <h5 class="card-title">Meninggal Dunia</h5>
-                  <h5 class="font-weight-light pb-2 mb-1 border-bottom text-white" id="totalmeninggal"></h5>
-                  <p class="tx-12 text-muted" id="meninggal"></p>
-                  <div class="card-icon-wrapper">
-                    <img width="30" src="assets/images/emoji-LWx.png">
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div class="col-md-12">
+            <div id="sidimpuan" style="height: 550px;"></div>
           </div>
-
-          <h4 class="text-center text-white mt-5"><i class="flag-icon flag-icon-id mr-2"></i>INDONESIA</h4>
+          <h4 class="text-center text-white mt-5"><i class="flag-icon flag-icon-id mr-2"></i>KOTA PADANGSIDIMPUAN</h4>
           </td>
           <div class="mdc-layout-grid__inner mb-5">
             <div
               class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-4-tablet">
               <div class="mdc-card info-card info-card--success">
                 <div class="card-inner">
-                  <h5 class="card-title">Kasus</h5>
-                  <h5 class="font-weight-light pb-2 mb-1 border-bottom text-white" id="kasus"></h5>
+                  <h5 class="card-title">Pelaku Perjalanan</h5>
+                  <h5 class="font-weight-light pb-2 mb-1 border-bottom text-white">1.446</h5>
                   <p class="tx-12 text-muted"> Jumlah Kasus</p>
                   <div class="card-icon-wrapper">
-                    <i class="material-icons">accessibility</i>
+                    <i class="material-icons">local_shipping</i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-4-tablet">
+              <div class="mdc-card info-card info-card--success">
+                <div class="card-inner">
+                  <h5 class="card-title">KEMBALI KE DAERAH ASAL </h5>
+                  <h5 class="font-weight-light pb-2 mb-1 border-bottom text-white">27</h5>
+                  <p class="tx-12 text-muted"> Total</p>
+                  <div class="card-icon-wrapper">
+                    <i class="material-icons">local_shipping</i>
                   </div>
                 </div>
               </div>
@@ -252,9 +226,9 @@
               class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-4-tablet">
               <div class="mdc-card info-card info-card--info">
                 <div class="card-inner">
-                  <h5 class="card-title">Positif</h5>
-                  <h5 class="font-weight-light pb-2 mb-1 border-bottom text-white" id="ipositif"></h5>
-                  <p class="tx-12 text-muted">Total Positif</p>
+                  <h5 class="card-title">Dalam Observasi </h5>
+                  <h5 class="font-weight-light pb-2 mb-1 border-bottom text-white">1.318</h5>
+                  <p class="tx-12 text-muted">Masih Dalam Proses Observasi</p>
                   <div class="card-icon-wrapper">
                     <img width="30" src="assets/images/sad-u6e.png">
                   </div>
@@ -263,13 +237,13 @@
             </div>
             <div
               class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-4-tablet">
-              <div class="mdc-card info-card info-card--danger">
+              <div class="mdc-card info-card info-card--primary">
                 <div class="card-inner">
-                  <h5 class="card-title">Meninggal Dunia</h5>
-                  <h5 class="font-weight-light pb-2 mb-1 border-bottom text-white" id="imeninggal"></h5>
-                  <p class="tx-12 text-muted">Total Meninggal Dunia</p>
+                  <h5 class="card-title">SELESAI OBSERVASI</h5>
+                  <h5 class="font-weight-light pb-2 mb-1 border-bottom text-white">101</h5>
+                  <p class="tx-12 text-muted">Total Pasien Sembuh</p>
                   <div class="card-icon-wrapper">
-                    <i><img width="30" src="assets/images/emoji-LWx.png"></i>
+                    <i><img width="30" src="assets/images/happy-ipM.png"></i>
                   </div>
                 </div>
               </div>
@@ -278,18 +252,60 @@
               class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-4-tablet">
               <div class="mdc-card info-card info-card--primary">
                 <div class="card-inner">
-                  <h5 class="card-title">Pasien Sembuh</h5>
-                  <h5 class="font-weight-light pb-2 mb-1 border-bottom text-white" id="isembuh"></h5>
-                  <p class="tx-12 text-muted">Total Pasien Sembuh</p>
+                  <h5 class="card-title">ODP SEHAT</h5>
+                  <h5 class="font-weight-light pb-2 mb-1 border-bottom text-white">1.313</h5>
+                  <p class="tx-12 text-muted">Total ODP Sehat</p>
                   <div class="card-icon-wrapper">
                     <i><img width="30" src="assets/images/happy-ipM.png"></i>
                   </div>
                 </div>
               </div>
             </div>
+            <div
+              class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-4-tablet">
+              <div class="mdc-card info-card info-card--info">
+                <div class="card-inner">
+                  <h5 class="card-title">ODP </h5>
+                  <h5 class="font-weight-light pb-2 mb-1 border-bottom text-white">4</h5>
+                  <p class="tx-12 text-muted">Orang Dalam Pemantauan</p>
+                  <div class="card-icon-wrapper">
+                    <img width="30" src="assets/images/sad-u6e.png">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div
+              class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-4-tablet">
+              <div class="mdc-card info-card info-card--danger">
+                <div class="card-inner">
+                  <h5 class="card-title">PDP MENINGGAL DUNIA</h5>
+                  <h5 class="font-weight-light pb-2 mb-1 border-bottom text-white">1</h5>
+                  <p class="tx-12 text-muted">Total Meninggal Dunia</p>
+                  <div class="card-icon-wrapper">
+                    <i class="material-icons"> trending_flat</i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-4-tablet">
+              <div class="mdc-card info-card info-card--danger">
+                <div class="card-inner">
+                  <h5 class="card-title">KONTAK ERAT</h5>
+                  <h5 class="font-weight-light pb-2 mb-1 border-bottom text-white">45</h5>
+                  <p class="tx-12 text-muted">Kontak Erat Dengan PDP</p>
+                  <div class="card-icon-wrapper">
+                    <i class="material-icons">accessibility</i>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <a class="btn btn-primary ml-auto mr-auto" target="_blank" href="covid19_sidimpuan.html">Lihat Peta Sebaran di Kota Padangsidimpuan</a><br><br>
+          <a class="btn btn-primary ml-auto mr-auto" href="pantau-sidimpuan.html">Lihat Peta Sebaran di Kota
+            Padangsidimpuan</a><br><br>
           <div class="mdc-layout-grid__inner">
             <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12">
               <div class="mdc-card">
@@ -475,22 +491,7 @@
     </div>
     <!-- Modal -->
 
-    <div class="modal fade" id="myModal">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <!-- Modal Header -->
 
-          <!-- Modal body -->
-          <div class="modal-body text-center">
-            <img width="50" src="assets/images/happy-ipM.png">
-            <span>#Dirumah Aja</span>
-          </div>
-
-          <!-- Modal footer -->
-
-        </div>
-      </div>
-    </div>
     <!-- plugins:js -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="assets/vendors/js/vendor.bundle.base.js"></script>
@@ -506,11 +507,31 @@
     <script src="assets/js/jquery.simple-text-rotator.min.js"></script>
     <script src="assets/js/script.js"></script>
     <script>
-      $('#myModal').modal('show');
+      var mymap = L.map('sidimpuan').setView([1.392423, 99.2731494], 12);
 
-      setTimeout(function () {
-        $('#myModal').modal('hide');
-      }, 4000);
+      L.tileLayer(
+        'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+          maxZoom: 18,
+          attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+            '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+            'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+          id: 'mapbox/streets-v11',
+          tileSize: 512,
+          zoomOffset: -1
+        }).addTo(mymap);
+        L.marker([1.3705412, 99.2703638]).addTo(mymap) 
+        .bindPopup("<h6><b>Kec. Padangsidimpuan Selatan</b></h6>Puskesmas Padangmatinggi = 181<br>"+"Puskesmas Sidangkal = 159<br>"+"<b>Total = 340</b>");
+        L.marker([1.3938454, 99.2640113]).addTo(mymap) 
+        .bindPopup("<h6><b>Kec. Padangsidimpuan Utara</b></h6>Puskesmas WEK-I = 212 <br>"+"Puskesmas Sadabuan = 231<br>"+"<b>Total = 443</b>");
+        L.marker([1.4019591, 99.2382414 ]).addTo(mymap) 
+        .bindPopup("<h6><b>Kec. Padangsidimpuan Hutaimbaru</b></h6>Puskesmas Hutaimbaru = 144<br>"+"<b>Total = 144  </b>");
+        L.marker([1.399486, 99.2923327]).addTo(mymap) 
+        .bindPopup("<h6><b>Kec. Padangsidimpuan Batunadua</b></h6>Puskesmas Batunadua = 127<br>"+"<b>Total = 127  </b>");
+        L.marker([1.3223728, 99.3093268]).addTo(mymap) 
+        .bindPopup("<h6><b>Kec. Padangsidimpuan Tenggara</b></h6>Puskesmas Pijorkoling = 252<br>"+"Puskesmas Labuhan Rasoki = 49<br>"+"<b>Total = 301  </b>");
+        L.marker([1.4533848, 99.2557953]).addTo(mymap) 
+        .bindPopup("<h6><b>Kec. Padangsidimpuan Angkola Julu</b></h6>Puskesmas Pokenjior = 84<br>"+"Puskesmas Pintu Langit = 7<br>"+"<b>Total = 301  </b>");
+
     </script>
     <script type="text/javascript">
       var typed = new Typed('.text1', {
